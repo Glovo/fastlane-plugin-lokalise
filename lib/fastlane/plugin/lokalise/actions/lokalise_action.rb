@@ -40,6 +40,16 @@ module Fastlane
           request_data["include_tags"] = tags
         end
 
+        mappings = params[:mappings]
+
+        if mappings.kind_of? Hash and !mappings.empty? then
+          request_data["language_mapping"] = mappings.map { |k,v| {
+              "original_language_iso": k,
+              "custom_language_iso": v
+            }
+          }
+        end
+
         uri = URI("https://api.lokalise.com/api2/projects/#{project_identifier}/files/download")
         request = Net::HTTP::Post.new(uri, {'content-type' => 'application/json', 'x-api-token' => "#{token}"})
         request.body = request_data.to_json
@@ -237,6 +247,13 @@ module Fastlane
                                        is_string: false,
                                        verify_block: proc do |value|
                                           UI.user_error! "Language codes should be passed as array" unless value.kind_of? Array
+                                       end),
+          FastlaneCore::ConfigItem.new(key: :mappings,
+                                       description: "Mappings for languages",
+                                       optional: true,
+                                       is_string: false,
+                                       verify_block: proc do |value|
+                                          UI.user_error! "Language codes should be passed as array" unless value.kind_of? Hash
                                        end),
             FastlaneCore::ConfigItem.new(key: :include_comments,
                                        description: "Include comments in exported files",
