@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛠️ fastlane-plugin-lokalise
+# fastlane-plugin-lokalise
 
 **fastlane plugin for Lokalise · download `.strings` · sync store metadata · add keys**
 
@@ -11,14 +11,13 @@ It is not a service and is not deployed. Glovo's versions are not on rubygems.or
 Google Play itself; fastlane's `deliver` and `supply` actions do that.
 
 [![Ruby](https://img.shields.io/badge/Ruby-gem-CC342D?logo=ruby&logoColor=white)](fastlane-plugin-lokalise.gemspec)
-[![fastlane](https://img.shields.io/badge/fastlane-%3E%3D_2.112.0-00F200?logo=fastlane&logoColor=black)](fastlane-plugin-lokalise.gemspec)
-[![Version](https://img.shields.io/badge/version-2.0.17-blue)](lib/fastlane/plugin/lokalise/version.rb)
-[![RuboCop](https://img.shields.io/badge/RuboCop-0.49.1-000000?logo=rubocop&logoColor=white)](fastlane-plugin-lokalise.gemspec)
+[![fastlane](https://img.shields.io/badge/fastlane-%3E%3D-00F200?logo=fastlane&logoColor=black)](fastlane-plugin-lokalise.gemspec)
+[![Version](https://img.shields.io/badge/version-blue)](lib/fastlane/plugin/lokalise/version.rb)
+[![RuboCop](https://img.shields.io/badge/RuboCop-000000?logo=rubocop&logoColor=white)](fastlane-plugin-lokalise.gemspec)
 <br/>
-[![Lokalise API](https://img.shields.io/badge/Lokalise_API-v2_and_v1-6E5AE6)](#external-integrations)
+[![Lokalise API](https://img.shields.io/badge/Lokalise_API-6E5AE6)](#external-integrations)
 [![Install](https://img.shields.io/badge/install-git_source-lightgrey?logo=github)](#adding-a-lokalise-step-to-a-fastfile-lane)
 <br/>
-[![test files](https://img.shields.io/badge/test_files-1-lightgrey)](spec)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 </div>
@@ -357,7 +356,7 @@ Files that don't end in `.strings` (for example `.stringsdict`) are always overr
 ├── lib/fastlane/plugin/
 │   ├── lokalise.rb                        # loads every file in actions/ and helper/
 │   └── lokalise/
-│       ├── actions/                       # ⭐ the three fastlane actions
+│       ├── actions/                       # source of truth: the three fastlane actions
 │       │   ├── lokalise_action.rb         # download .strings (API v2) + file strategies
 │       │   ├── lokalise_metadata_action.rb  # store metadata <-> Lokalise (API v1)
 │       │   └── add_keys_to_lokalise_action.rb  # create keys (API v1)
